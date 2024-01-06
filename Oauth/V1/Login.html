@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Soundvibe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fdfdfd;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        .login-box {
+            text-align: center;
+        }
+
+        h2 {
+            color: #0f6b30;
+            margin-bottom: 20px;
+        }
+
+        .input-box {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 281px;
+            padding: 10px;
+            border: 1px solid #b8b8b8;
+            border-radius: 4px;
+            outline: none;
+            background-color: #fdfdfd;
+        }
+
+        .login-button {
+            background-color: #1ed760;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #0f6b30;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0f6b30;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style pour la boîte pop-up */
+        #erreur-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .erreur-text {
+            color: rgb(161, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="login-box">
+            <h2>Connexion</h2>
+            <form method="POST" action="login_process.php">
+                <div class="input-box">
+                    <input type="text" name="utilisateur" placeholder="Nom d'utilisateur" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="motdepasse" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit" class="login-button">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Boîte pop-up d'erreur -->
+    <div id="erreur-message">
+        <p class="erreur-text"></p>
+    </div>
+
+    <!-- JavaScript pour afficher la boîte pop-up d'erreur -->
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const erreurBox = document.getElementById("erreur-message");
+            erreurBox.style.display = "none";
+        });
+    </script>
+</body>
+</html>
